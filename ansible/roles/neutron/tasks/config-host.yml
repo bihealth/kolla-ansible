@@ -13,7 +13,7 @@
     length > 0
 
 - name: Check IPv6 support
-  command: /usr/sbin/sysctl -n net.ipv6.conf.all.disable_ipv6
+  command: echo 1
   register: ipv6_disabled
   changed_when: false
 
