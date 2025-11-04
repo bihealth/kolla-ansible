@@ -88,3 +88,15 @@
   when:
     - enable_ironic_dnsmasq | bool
     - not ironic_dnsmasq_dhcp_ranges is sequence
+
+- name: Ensure ironic_dnsmasq_dns is a list
+  connection: local
+  run_once: True
+  assert:
+    that:
+      - ironic_dnsmasq_dns is not string
+      - ironic_dnsmasq_dns is not mapping
+      - ironic_dnsmasq_dns is iterable
+    fail_msg: ironic_dnsmasq_dns must be a list
+  when:
+    - enable_ironic_dnsmasq | bool
