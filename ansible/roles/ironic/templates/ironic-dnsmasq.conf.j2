@@ -31,6 +31,9 @@ dhcp-option=tag:ipxe,option:bootfile-name,{{ ironic_http_url }}/ipa.ipxe
 dhcp-option=tag:efi,tag:!ipxe,option:bootfile-name,{{ ironic_dnsmasq_uefi_ipxe_boot_file }}
 {% endif %}
 dhcp-option=option:bootfile-name,{{ ironic_dnsmasq_boot_file }}
+{% if ironic_dnsmasq_dns | length > 0 %}
+dhcp-option=6,{{ ironic_dnsmasq_dns | join(',') }}
+{% endif %}
 {% endif %}{# ipv6/ipv4 #}
 
 log-async

@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    Ironic DHCP can now be configured to supply a list of DNS servers via the
+    new variable ``ironic_dnsmasq_dns``. This enables IPA callback to FQDN
+    API endpoints.
